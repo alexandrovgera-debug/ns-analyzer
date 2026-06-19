@@ -1,4 +1,4 @@
-profile = {
+const profile = {
   basal: [
     { time: "00:00", value: 0.32 },
     { time: "01:00", value: 0.30 }
@@ -9,4 +9,6 @@ profile = {
   cr: [
     { time: "00:00", value: 12.0 }
   ]
-}
+};
+
+export default profile;
