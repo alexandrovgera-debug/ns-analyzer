@@ -1,5 +1,5 @@
 import NightscoutAPI from "./api.js";
-import Profile from "./profile.js";
+import profile from "./profile.js";
 import SensitivityAnalyzer from "./analyzer.js";
 import { renderTable } from "./table.js";
 import { drawChart } from "./charts.js";
