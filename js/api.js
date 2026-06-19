@@ -47,7 +47,7 @@ async getProfiles() {
         cr: active.carbratio,
         dia: active.dia,
         units: active.units
-    };
+    }
 //}
 
 
