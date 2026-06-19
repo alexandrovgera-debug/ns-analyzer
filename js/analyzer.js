@@ -24,8 +24,9 @@ export default class SensitivityAnalyzer {
             const date =
                 new Date(row.created_at);
 
+            // Сдвиг НАЗАД к часу подачи базального инсулина
             date.setMinutes(
-                date.getMinutes() + shiftMinutes
+                date.getMinutes() - shiftMinutes
             );
 
             const h = date.getHours();
