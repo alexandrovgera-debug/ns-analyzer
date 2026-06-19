@@ -48,7 +48,7 @@ async getProfiles() {
         dia: active.dia,
         units: active.units
     };
-//}
+}
 
 
     //async getProfiles() {
