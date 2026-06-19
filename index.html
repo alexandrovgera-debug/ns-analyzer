@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nightscout Sensitivity Analyzer</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script type="module" src="js/app.js"></script>
+</head>
+
+<body>
+
+<h1>Nightscout Sensitivity Analyzer</h1>
+
+<div class="toolbar">
+
+<label>Nightscout URL</label>
+<input
+        id="url"
+        type="text"
+        value="https://j77432492.nightscout-jino.ru">
+
+<label>Период</label>
+
+<select id="period">
+
+<option value="6">6 часов</option>
+<option value="12">12 часов</option>
+<option value="24" selected>24 часа</option>
+<option value="72">3 дня</option>
+<option value="168">7 дней</option>
+
+</select>
+
+<label>Сдвиг SR</label>
+
+<select id="shift">
+
+<option value="0">0 мин</option>
+<option value="30">30 мин</option>
+<option value="45">45 мин</option>
+<option value="60" selected>60 мин</option>
+
+</select>
+
+<button id="analyze">
+
+Анализ
+
+</button>
+
+</div>
+
+<div class="chart">
+
+<canvas id="srChart"></canvas>
+
+</div>
+
+<table id="resultTable">
+
+<thead>
+
+<tr>
+
+<th>Час</th>
+<th>SR</th>
+<th>Базал</th>
+<th>Новый базал</th>
+<th>ISF</th>
+<th>Новый ISF</th>
+<th>CR</th>
+<th>Новый CR</th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+</tbody>
+
+</table>
+
+</body>
+
+</html>
