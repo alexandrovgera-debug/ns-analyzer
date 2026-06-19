@@ -48,7 +48,7 @@ async getProfiles() {
         dia: active.dia,
         units: active.units
     };
-}
+//}
 
 
     //async getProfiles() {
@@ -64,4 +64,4 @@ async getProfiles() {
         //return await response.json();
    // }
 
-//}
+}
