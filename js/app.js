@@ -45,5 +45,4 @@ async function analyze() {
 
     }
 }
-
 window.onload = analyze;
