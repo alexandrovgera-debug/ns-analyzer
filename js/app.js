@@ -15,68 +15,35 @@ async function analyze() {
 
     try {
 
-        const url =
-            document.getElementById("url").value.trim();
-
-        const hours =
-            Number(document.getElementById("period").value);
-
-        const shift =
-            Number(document.getElementById("shift").value);
+        const url = document.getElementById("url").value.trim();
+        const hours = Number(document.getElementById("period").value);
+        const shift = Number(document.getElementById("shift").value);
 
         const api = new NightscoutAPI(url);
 
-        // ---------- profile ----------
+        // profile (ЛОКАЛЬНЫЙ fallback, если API не даёт профиль)
+        const profileJson = await api.getProfiles().catch(() => profile);
 
-        const profileJson =
-            await api.getProfiles();
+        const deviceStatus = await api.getDeviceStatus(hours);
 
-        const parser =
-            new ProfileParser(profileJson);
+        const analyzer = new SensitivityAnalyzer(profileJson);
 
-        const profile =
-            parser.parse();
-
-        // ---------- devicestatus ----------
-
-        const deviceStatus =
-            await api.getDeviceStatus(hours);
-
-        // ---------- analyzer ----------
-
-        const analyzer =
-            new SensitivityAnalyzer(profile);
-
-        const result =
-            analyzer.analyze(
-                deviceStatus,
-                shift
-            );
-
-        // ---------- output ----------
+        const result = analyzer.analyze(deviceStatus, shift);
 
         renderTable(result);
-
         drawChart(result);
 
-    }
-    catch (e) {
+    } catch (e) {
 
         console.error(e);
+        alert("Ошибка:\n\n" + e.message);
 
-        alert(
-            "Ошибка:\n\n" + e.message
-        );
-
-    }
-
-    finally {
+    } finally {
 
         button.disabled = false;
         button.textContent = "Анализ";
 
     }
-
 }
 
 window.onload = analyze;
